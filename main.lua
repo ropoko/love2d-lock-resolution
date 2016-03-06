@@ -39,9 +39,9 @@ function love.draw(dt)
 	for k,v in pairs(holder_balls) do
 		love.graphics.circle("fill", v.x, v.y, v.radius, 100)
 	end
-	love.graphics.rectangle("fill", 0, 0, camera.width, 2)
-	love.graphics.rectangle("fill", 0, 0, 2, camera.height)
-	love.graphics.rectangle("fill", camera.width-2, 0, 2, camera.height)
-	love.graphics.rectangle("fill", 0, camera.height-2, camera.width, 2)
+	love.graphics.rectangle("fill", 0, 0, camera.width, 4)
+	love.graphics.rectangle("fill", 0, 0, 4, camera.height)
+	love.graphics.rectangle("fill", camera.width-4, 0, 4, camera.height)
+	love.graphics.rectangle("fill", 0, camera.height-4, camera.width, 4)
 	camera:unset()
 end
