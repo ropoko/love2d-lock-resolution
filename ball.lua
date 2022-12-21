@@ -1,6 +1,10 @@
-Ball = {}
+local Camera = require('camera')
+
+Ball = {
+	all_balls = {}
+}
+
 Ball.__index = Ball
-holder_balls = {}
 
 function Ball.new(x, y, xspeed, yspeed, radius)
 	x = x or math.random(love.graphics.getWidth())
@@ -24,15 +28,17 @@ function Ball:move(dt)
 	if self.x-self.radius <= 0 then
 	    self.xspeed = math.abs(self.xspeed)
 	end
-	if self.x+self.radius >= camera.width then
+	if self.x+self.radius >= Camera.width then
 		self.xspeed = math.abs(self.xspeed)*-1
 	end
 	if self.y-self.radius <= 0 then
 	    self.yspeed = math.abs(self.yspeed)
 	end
-	if self.y+self.radius >= camera.height then
+	if self.y+self.radius >= Camera.height then
 		self.yspeed = math.abs(self.yspeed)*-1
 	end
 end
 
 setmetatable(Ball, { __call = function(_, ...) return Ball.new(...) end })
+
+return Ball
